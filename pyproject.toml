@@ -4,4 +4,5 @@ version = "0.1.0"
 requires-python = ">=3.11"
 dependencies = [
     "campy>=0.0.1.dev19",
+    "pillow>=12.2.0",
 ]
