@@ -12,56 +12,57 @@ values among all the collected inputs.
 """
 def main():
     # SC001
-    hasSC001 = False
-    sc001Max = 0
-    sc001Min = 0
-    sc001Total = 0
-    sc001Count = 0
+    has_sc001 = False
+    sc001_max = 0
+    sc001_min = 0
+    sc001_total = 0
+    sc001_count = 0
 
     # SC101
-    hasSC101 = False
-    sc101Max = 0
-    sc101Min = 0
-    sc101Total = 0
-    sc101Count = 0
+    has_sc101 = False
+    sc101_max = 0
+    sc101_min = 0
+    sc101_total = 0
+    sc101_count = 0
 
     while True:
-        classInput = input("Which class? ").lower()
-        if classInput == "-1":
-            if not hasSC001 and not hasSC101:
-                return print("No class scores were entered")
+        class_input = input("Which class? ").lower()
+        if class_input == "-1":
+            if not has_sc001 and not has_sc101:
+                print("No class scores were entered")
+                return
             break
-        elif classInput == "sc001":
+        elif class_input == "sc001":
             score = int(input("Score: "))
 
-            hasSC001 = True
-            sc001Max = max(sc001Max, score)
-            sc001Min = max(sc001Min, score)
-            sc001Total += score
-            sc001Count += 1
-        elif classInput == "sc101":
+            has_sc001 = True
+            sc001_max = max(sc001_max, score)
+            sc001_min = max(sc001_min, score)
+            sc001_total += score
+            sc001_count += 1
+        elif class_input == "sc101":
             score = int(input("Score: "))
 
-            hasSC101 = True
-            sc101Max = max(sc101Max, score)
-            sc101Min = max(sc101Min, score)
-            sc101Total += score
-            sc101Count += 1
+            has_sc101 = True
+            sc101_max = max(sc101_max, score)
+            sc101_min = max(sc101_min, score)
+            sc101_total += score
+            sc101_count += 1
 
-    printResult("001", hasSC001, sc001Total, sc001Count, sc001Max, sc001Min)
-    printResult("101", hasSC101, sc101Total, sc101Count, sc101Max, sc101Min)
+    print_result("001", has_sc001, sc001_total, sc001_count, sc001_max, sc001_min)
+    print_result("101", has_sc101, sc101_total, sc101_count, sc101_max, sc101_min)
 
 
-def printResult(className, hasClass, total, count, max, min):
-    classFullName= f"SC{className}"
-    print(f"========={classFullName}=========")
-    if hasClass:
+def print_result(class_name, has_class, total, count, max_score, min_score):
+    class_full_name = f"SC{class_name}"
+    print(f"========={class_full_name}=========")
+    if has_class:
         average = total/count
-        print(f"Max ({className}): ",max)
-        print(f"Min ({className}): ",min)
-        print(f"Avg ({className}): ",average)
+        print(f"Max ({class_name}): ",max_score)
+        print(f"Min ({class_name}): ",min_score)
+        print(f"Avg ({class_name}): ",average)
     else:
-        print(f"No score for {classFullName}")
+        print(f"No score for {class_full_name}")
 
 
 
