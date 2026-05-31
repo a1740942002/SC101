@@ -35,17 +35,25 @@ def main():
         elif class_input == "sc001":
             score = int(input("Score: "))
 
+            if not has_sc001:          # 第一筆分數,直接當成 max / min 的起點
+                sc001_max = score
+                sc001_min = score
+            else:
+                sc001_max = max(sc001_max, score)
+                sc001_min = min(sc001_min, score)
             has_sc001 = True
-            sc001_max = max(sc001_max, score)
-            sc001_min = max(sc001_min, score)
             sc001_total += score
             sc001_count += 1
         elif class_input == "sc101":
             score = int(input("Score: "))
 
+            if not has_sc101:          # 第一筆分數,直接當成 max / min 的起點
+                sc101_max = score
+                sc101_min = score
+            else:
+                sc101_max = max(sc101_max, score)
+                sc101_min = min(sc101_min, score)
             has_sc101 = True
-            sc101_max = max(sc101_max, score)
-            sc101_min = max(sc101_min, score)
             sc101_total += score
             sc101_count += 1
 
