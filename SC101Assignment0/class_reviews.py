@@ -11,12 +11,8 @@ calculate and display the maximum, minimum, and average
 values among all the collected inputs.
 """
 def main():
-    """
-    TODO:
-    """
     # SC001
     hasSC001 = False
-
     sc001Max = 0
     sc001Min = 0
     sc001Total = 0
@@ -32,6 +28,8 @@ def main():
     while True:
         classInput = input("Which class? ").lower()
         if classInput == "-1":
+            if not hasSC001 and not hasSC101:
+                return print("No class scores were entered")
             break
         elif classInput == "sc001":
             score = int(input("Score: "))
@@ -55,14 +53,15 @@ def main():
 
 
 def printResult(className, hasClass, total, count, max, min):
+    classFullName= f"SC{className}"
+    print(f"========={classFullName}=========")
     if hasClass:
-        print(f"===SC{className}===")
         average = total/count
         print(f"Max ({className}): ",max)
         print(f"Min ({className}): ",min)
         print(f"Avg ({className}): ",average)
     else:
-        print(f"No score for {className}")
+        print(f"No score for {classFullName}")
 
 
 
