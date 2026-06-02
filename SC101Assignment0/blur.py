@@ -34,11 +34,11 @@ def blur(img):
             # 兩層迴圈把 {-1, 0, 1} 兩兩組合, 剛好湊出全部 9 個位置。
             for offset_x in [-1, 0, 1]:
                 for offset_y in [-1, 0, 1]:
-                    # nx, ny = 鄰居在圖片上的實際座標
+                    # nx, ny = 鄰居座標
                     nx = x + offset_x
                     ny = y + offset_y
                     # 只算還在圖片範圍內的鄰居
-                    # (例如在最左邊時, x - 1 會變 -1, 那就超出圖片了)
+                    # (e.g. 在最左邊時, x - 1 會變 -1, 那就超出圖片了)
                     if 0 <= nx < img.width and 0 <= ny < img.height:
                         neighbor = img.get_pixel(nx, ny)
                         total_red += neighbor.red
