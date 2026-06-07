@@ -9,7 +9,7 @@ from campy.graphics.gobjects import GOval, GLine
 from campy.graphics.gwindow import GWindow
 from campy.gui.events.mouse import onmouseclicked
 
-window = GWindow()
+window = GWindow(title="Draw Line")
 count = 0
 start_x = 0
 start_y = 0

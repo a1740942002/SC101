@@ -8,7 +8,7 @@ TODO:
 from campy.graphics.gobjects import GOval, GRect, GArc, GPolygon
 from campy.graphics.gwindow import GWindow
 
-window = GWindow(500, 400)
+window = GWindow(500, 400, title="Snoopy")
 
 def main():
     """
