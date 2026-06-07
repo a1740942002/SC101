@@ -1,5 +1,5 @@
 """
-File: 
+File:
 Name:
 ----------------------
 TODO:
@@ -8,11 +8,13 @@ TODO:
 from campy.graphics.gobjects import GOval, GRect, GArc, GPolygon
 from campy.graphics.gwindow import GWindow
 
-window = GWindow(500, 500)
+window = GWindow(500, 400)
 
 def main():
     """
-    TODO:
+    Title: 史努比
+
+    左臉被蜜蜂叮到腫起來的史努比
     """
 
     # 臉
@@ -22,11 +24,8 @@ def main():
     left_face = create_oval(100, 100)
     window.add(left_face, x=160, y=130)
 
-    mid_face = GRect(100,77, x=200, y=152)
-    mid_face.filled = True
-    mid_face.fill_color = "white"
-    mid_face.color = "white"
-    window.add(mid_face)
+    mid_face = create_rect(100,77, color="white", fill_color="white")
+    window.add(mid_face, x=200, y=152)
 
     # 耳朵
     ear = create_oval(50, 100)
@@ -34,6 +33,19 @@ def main():
 
     inner_eye = create_oval(35,70, color="black", fill_color="black")
     window.add(inner_eye, x=275, y=165)
+
+    # 身體
+    upper_body = GPolygon()
+    # 左頂點
+    upper_body.add_vertex((220, 260))
+    # 右頂點
+    upper_body.add_vertex((280, 260))
+    # 中頂點
+    upper_body.add_vertex((250, 205))
+    upper_body.filled = True
+    upper_body.fill_color = "white"
+    upper_body.color="white"
+    window.add(upper_body)
 
     # 眼睛
     left_eye = create_oval(5,10, color="black", fill_color="black")
@@ -57,24 +69,9 @@ def main():
     mouth = GArc(65,40, 160, 180)
     window.add(mouth, x=200, y=190)
 
-    # 身體
-    upper_body = GPolygon()
-
-    # 左頂點
-    upper_body.add_vertex((120, 300))
-    # 右頂點
-    upper_body.add_vertex((250, 300))
-    # 中頂點
-    upper_body.add_vertex((175, 150))
-    upper_body.filled="white"
-    upper_body.fill_color="white"
-    window.add(upper_body)
-
-
     # 項圈
-    necklace = create_rect(45,4, fill_color="red", color="red")
-    window.add(necklace, x=250, y=300)
-
+    necklace = create_rect(38,4, fill_color="red", color="red")
+    window.add(necklace, x=231, y=235)
 
 
 def create_oval(width, height, color="white", fill_color="white"):
