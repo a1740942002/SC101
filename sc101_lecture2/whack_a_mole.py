@@ -25,11 +25,33 @@ WINDOW_HEIGHT = 550
 DELAY = 700
 
 # Global variables
-# TODO:
-
+score = 0
+window = GWindow(WINDOW_WIDTH, WINDOW_HEIGHT, title="WhackAMole")
+label = GLabel(f"Score: {score}")
+label.font ="-60"
+label.color="red"
+window.add(label, x=0, y=label.height)
 
 def main():
-    pass
+    onmouseclicked(remove_mole)
+
+    while score < 10:
+        mole = GImage("./mole.png")
+        window.add(mole, x=random.randint(0,window.width - mole.width), y=random.randint(0, window.height - mole.height))
+        pause(DELAY)
+
+def remove_mole(e):
+    # 因為下面有 score += 1（重新賦值），
+    # 沒宣告 global 的話 Python 會把 score 當成 local 變數而出錯。
+    global score
+    maybe_mole = window.get_object_at(e.x, e.y)
+
+    # 如果打到地鼠
+    if maybe_mole is not None and maybe_mole is not label:
+        window.remove(maybe_mole)
+        score += 1
+        label.text = f"Score: {score}"
+
 
 
 if __name__ == '__main__':

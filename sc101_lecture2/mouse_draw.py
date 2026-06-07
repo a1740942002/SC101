@@ -17,9 +17,18 @@ from campy.gui.events.mouse import onmousedragged
 # This constant controls the size of the pen stroke
 SIZE = 30
 
+window = GWindow()
+
 
 def main():
-	pass
+	onmousedragged(drag)
+
+def drag(event):
+	ink = GOval(SIZE, SIZE)
+	ink.color = "blue"
+	ink.filled = True
+	ink.fill_color = "blue"
+	window.add(ink, x=event.x - ink.width / 2, y=event.y - ink.height/2)
 
 
 if __name__ == '__main__':

@@ -17,8 +17,15 @@ from campy.gui.events.mouse import onmouseclicked
 SIZE = 30
 
 
+window = GWindow(500, 500)
+
 def main():
-	pass
+	onmouseclicked(create_hole)
+
+def create_hole(event):
+	hole = GOval(SIZE, SIZE)
+	hole.filled = True
+	window.add(hole, x=event.x - SIZE/2, y=event.y - SIZE/2)
 
 
 if __name__ == '__main__':
