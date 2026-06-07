@@ -5,9 +5,9 @@ Name:
 TODO:
 """
 
-from campy.graphics.gobjects import GOval, GLine, GLabel
+from campy.graphics.gobjects import GOval, GLine
 from campy.graphics.gwindow import GWindow
-from campy.gui.events.mouse import onmouseclicked, onmousemoved
+from campy.gui.events.mouse import onmouseclicked
 
 window = GWindow()
 count = 0
@@ -15,10 +15,7 @@ start_x = 0
 start_y = 0
 cursor = None
 
-
 POINTER_SIZE = 25
-pointer = GOval(POINTER_SIZE,POINTER_SIZE)
-window.add(pointer)
 
 def main():
     """
@@ -28,7 +25,6 @@ def main():
     disappears and a line is drawn between the two clicked positions.
     """
     onmouseclicked(on_click)
-    onmousemoved(on_moved)
 
 def on_click(e):
     global count
@@ -51,9 +47,6 @@ def on_click(e):
         window.add(line)
         if cursor is not None:
             window.remove(cursor)
-
-def on_moved(e):
-    pointer.location = e.x - pointer.width / 2, e.y - pointer.height/2
 
 
 if __name__ == "__main__":
