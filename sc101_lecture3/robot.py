@@ -21,3 +21,7 @@ class Robot:
         # weight(kg)/height(m)**2
         h_in_meter = self.h/100
         print("bmi:", self.w / h_in_meter ** 2)
+
+    @staticmethod
+    def say_hi():
+        print("Hi")

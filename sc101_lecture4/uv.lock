@@ -1,0 +1,23 @@
+version = 1
+revision = 3
+requires-python = ">=3.11"
+
+[[package]]
+name = "campy"
+version = "0.0.1.dev19"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/c9/9f/8b291b1b125cbef9308b791571aefbe8ebf0bda79e073de3c4265ec6dfdf/campy-0.0.1.dev19.tar.gz", hash = "sha256:27b2cb8156a39b2cf46326642550b63baf832b180032fc34484352739dbbaf36", size = 104176, upload-time = "2019-08-12T23:27:35.099Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/54/02/85f13be196a0a935cf5bb9dae5fe28bb50d0b05bde69089c5b9e178e23ae/campy-0.0.1.dev19-py3-none-any.whl", hash = "sha256:8125a1a8c952d24b9cc3cd606e30b6f0bfb8667d47effd37d72ed525538c2048", size = 123365, upload-time = "2019-08-12T23:27:33.544Z" },
+]
+
+[[package]]
+name = "sc101-lecture4"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "campy" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "campy", specifier = ">=0.0.1.dev19" }]
